@@ -193,8 +193,8 @@ let arr = [1,[2,[3]]];
 console.log(arr.flat(2));
 
 Output
-
 [1,2,3]
+
 20. flatMap()
 Maps then flattens.
 
@@ -203,11 +203,13 @@ console.log(arr.flatMap(x=>[x*2]));
 
 Output
 [2,4,6]
+
 21. forEach()
 Loops through elements.
 
 let arr = [10,20,30];
 arr.forEach(value=>console.log(value));
+
 22. map()
 Creates a new transformed array.
 
@@ -217,6 +219,7 @@ console.log(result);
 
 Output
 [10,20,30]
+
 23. filter()
 Returns matching elements.
 
@@ -225,10 +228,10 @@ console.log(arr.filter(x=>x>15));
 
 Output
 [20,25]
+
 24. reduce()
 
 Reduces array to a single value.
-
 let arr = [1,2,3,4];
 
 console.log(arr.reduce((sum,x)=>sum+x,0));
