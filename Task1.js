@@ -36,7 +36,7 @@ console.log(age >= 18);
 console.log("-------undefine ------------------");
 let un;
 console.log(un);
-console.log(typeof x);
+console.log(typeof un);
 
 //5. Null
 console.log("-----------Null-----------");
@@ -310,58 +310,139 @@ console.log(div2);
 console.log(typeof div2);
 
 console.log("-------------Boolean to number");
-console.log(true +1);
-console.log(false +1);
-console.log(undefined +5); 
+console.log(true + 1);
+console.log(false + 1);
+console.log(undefined + 5);
 
 console.log("----------------2. Explicit Type Conversion---------------");
 
 console.log("-------------- string convert into number---------");
-let num="1005";
-console.log(Number(num));  //1005
+let num = "1005";
+console.log(Number(num)); //1005
 console.log(Number(null)); //0
-console.log(Number(true));  //1
+console.log(Number(true)); //1
 console.log(Number(false)); //0
-console.log(Number("1000abc"));  //NAN
+console.log(Number("1000abc")); //NAN
 console.log(Number(undefined)); //NAN
-console.log(Number(NaN));  //nan
+console.log(Number(NaN)); //nan
 
- console.log("-----------------------parseInt()------------");
- //Converts a string to an integer.
- console.log(parseInt("100")); //100
- console.log(parseInt("100.99")); //100
- console.log(parseInt("100px")); //100
+console.log("-----------------------parseInt()------------");
+//Converts a string to an integer.
+console.log(parseInt("100")); //100
+console.log(parseInt("100.99")); //100
+console.log(parseInt("100px")); //100
 
- console.log("--------------parseFloat()-----------");
- console.log(parseFloat("100.99"));   //100.99
- console.log(parseFloat("100.99px")); //100.99
- 
-
+console.log("--------------parseFloat()-----------");
+console.log(parseFloat("100.99")); //100.99
+console.log(parseFloat("100.99px")); //100.99
 
 console.log("--------------------- num to String --------------");
- let s= 10065;
- console.log(typeof s);
- console.log(String(s)); 
- console.log(String(null));
- console.log(String(true));
- console.log(String(false));
- console.log(String(undefined));
+let s = 10065;
+console.log(typeof s);
+console.log(String(s));
+console.log(String(null));
+console.log(String(true));
+console.log(String(false));
+console.log(String(undefined));
 
+console.log("-----------------Boolean()-------------");
+console.log(Boolean("")); //false
+console.log(Boolean(1)); //t
+console.log(Boolean(0)); //f
+console.log(Boolean(null)); //f
+console.log(Boolean(undefined)); //f
+console.log(Boolean(NaN)); //f
 
- console.log("-----------------Boolean()-------------");
- console.log(Boolean("")); //false
- console.log(Boolean(1)); //t
- console.log(Boolean(0)); //f
- console.log(Boolean(null)); //f
- console.log(Boolean(undefined)); //f
- console.log(Boolean(NaN)); //f
+console.log(Boolean("Hello"));
+console.log(Boolean(1));
+console.log(Boolean([]));
+console.log(Boolean({}));
 
- console.log(Boolean("Hello"));
- console.log(Boolean(1));
- console.log(Boolean([]));
- console.log(Boolean({}));
+console.log(
+  "-==============================JavaScript Operators===================",
+);
 
+console.log("-----------1. Arithmetic Operators------------");
+let x = 10;
+let y = 3;
 
+console.log("addition :", x + y); // 13
+console.log("Sub : ", x - y); // 7
+console.log("MUl :", x * y); // 30
+console.log("Div : ", x / y); // 3.3333
+console.log("mod: ", x % y); // 1
+console.log("Expon: ", x ** y); // 1000
 
+console.log("--------------2. Assignment Operators-----------------");
+let xx = 10;
 
+xx += 5;
+console.log(x); // 15
 
+xx *= 2;
+console.log(x); // 30
+
+console.log("-------------Comparison (Relational) Operators----------");
+console.log(10 == "10"); // true
+console.log(10 === "10"); // false
+console.log(10 != 20); // true
+console.log(10 !== "10"); // true
+console.log(20 > 10); // true
+console.log(20 < 10); // false
+
+console.log("-------------Logical Operators------------");
+let age1 = 20;
+
+console.log(age1 > 18 && age1 < 30); // true
+console.log(age1 < 18 || age1 > 15); // true
+console.log(!(age1 > 18)); // false
+
+console.log("-------------Increment & Decrement Operators--------------");
+//Increment (++)
+let i = 1;
+i++;
+console.log(i);
+
+//Pre-Increment
+let p = 1;
+console.log(++p);
+
+//post-Increment
+let pi = 1;
+console.log(pi++);
+console.log(pi);
+
+//Decrement (--)
+let d = 1;
+i--;
+console.log(d);
+
+//Pre-Increment
+let d1 = 1;
+console.log(--d1);
+
+//post-Increment
+let d2 = 1;
+console.log(d2--);
+console.log(d2);
+
+console.log("--------------Ternary Operator------------------");
+//condition ? value1 : value2;
+
+let w = 18;
+
+let wr = w < 20 ? "vote" : "not vote";
+console.log(wr);
+
+console.log("-----------------Spread Operator (...)--------------");
+//Expands an iterable into individual elements.
+let array1 = [1, 2, 3];
+let array2 = [...arr1, 4, 5];
+
+console.log(array2);
+
+console.log("-------------Rest op (...) --------------");
+function added(...numbers){
+    console.log(numbers);
+}
+added(10,20,30,40,50);
