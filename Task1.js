@@ -442,7 +442,118 @@ let array2 = [...arr1, 4, 5];
 console.log(array2);
 
 console.log("-------------Rest op (...) --------------");
-function added(...numbers){
-    console.log(numbers);
+function added(...numbers) {
+  console.log(numbers);
 }
-added(10,20,30,40,50);
+added(10, 20, 30, 40, 50);
+
+console.log(
+  "------------------ JavaScript Conditional Statements-----------------",
+);
+console.log("----------------------- if Statement-----------------------");
+
+let hour = 16;
+if (hour < 18) {
+  console.log("Good day");
+} else {
+  console.log("NOt Good");
+}
+
+console.log("------------------------Nested if--------------------");
+let usaage = 18;
+let country = "USA";
+let t = "";
+
+if (country == "USA") {
+  if (usaage >= 16) {
+    console.log("You can drive!");
+  } else {
+    console.log("You can Not drive! your age is low ");
+  }
+} else {
+  console.log("You can Not drive! becaues your country is not usa");
+}
+
+console.log("-----------------------else if Statement-------------------");
+let time =15;
+
+if (time < 10) {
+  console.log("Good morning");
+} else if (time < 20) {
+  console.log("Good day");
+} else {
+  console.log("Good evening");
+}
+
+
+console.log("-----------------Switch Statement---------------------");
+
+switch (new Date().getDay()) {
+  case 0:
+  console.log( "Sunday");
+    break;
+  case 1:
+    console.log("Monday");
+    break;
+  case 2:
+  console.log( "Tuesday");
+    break;
+  case 3:
+    console.log("Wednesday");
+    break;
+  case 4:
+    console.log("Thursday");
+    break;
+  case 5:
+    console.log("Friday");
+    break;
+  case 6:
+    console.log("Saturday");
+  default:
+    console.log("invalid day");
+}
+
+console.log("-------------------Loops--------------------------");
+
+console.log("-----------------------for looop-----------------");
+
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+console.log("--------------- While Loop-------------");
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+
+
+console.log("---------------------do while ---------------");
+let s1=0;
+do{
+  console.log(s1);
+  s1++
+}while(s1 <10);
+
+
+console.log("--------------for...of Loop------------------");
+let fruits = ["Apple", "Banana", "Mango"];
+
+for (let fruit of fruits) {
+  console.log(fruit);
+}
+
+console.log("---------------for... in Loop----------------");
+let student = {
+  name: "Aniket",
+  age: 22,
+  city: "Pune",
+};
+
+for (let key in student) {
+  console.log(key, ":", student[key]);
+}
+
+for(let k in student){
+  console.log(k);
+}
