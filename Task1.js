@@ -211,7 +211,7 @@ console.log("-------------push---------");
 myarr.push(60);
 console.log(myarr);
 
-console.log("----------Removes the last element. pop()");
+console.log("----------Removes the last element. pop()--------------");
 myarr.pop();
 console.log(myarr);
 
@@ -225,6 +225,39 @@ console.log("------------shift()-------");
 myarr.shift();
 console.log(myarr);
 
+console.log("------------------slice-------------");
+//Returns part of an array.
+console.log(myarr.slice(1, 3));
+
+
+console.log("------------splice-------------");
+//Adds or removes elements.
+let splicedata = [10, 20, 30, 40];
+splicedata.splice(2, 0 , "aniket");
+console.log(splicedata);
+
+splicedata.splice(1,1);
+console.log(splicedata);
+
+console.log("----------------concat()---------------");
+//Combines arrays.
+let carr1=[1,2,3,4];
+let carr2=[4,5,6,7];
+console.log(carr1.concat(carr2));
+
+
+console.log("--------------------- join()-----------------");
+//Converts array into a string.
+let joinarr=["aniket" , "abhay", "vikas", "pammu"];
+console.log(joinarr.join("--"));
+
+
+console.log("--------------------indexOf----------------");
+//returns first index.
+let indx=[1,2,3,4,5,6,7,8];
+console.log(indx.indexOf(3));
+
+
 console.log("---------lenght----------");
 console.log(myarr.length);
 
@@ -233,14 +266,32 @@ let aa = [1, 2, 3, 4, 5];
 let bb = [6, 7, 8, 9, 10];
 console.log(aa.concat(bb));
 
-console.log("-------------join-----------");
-//Converts array into a string.
-let lan = ["html", "css", "java"];
-console.log(lan.join("**"));
+console.log("-----------------------includes()---------------");
+//Checks if value exists.
+console.log(aa.includes(1));
 
 console.log("----------toString---------------");
 //Converts array to string.
+let lan=1000;
 console.log(lan.toString());
+
+
+console.log("----------------find()-------------");
+//Returns the first matching element.
+
+let findarr = [10,20,30];
+console.log(findarr.find((x) => x > 15));
+
+
+console.log("------------------- findIndex()------------");
+//Returns the index of the first matching element.
+console.log(findarr.findIndex((x)=>x>15));
+
+
+console.log("---------------------findlast()---------------------");
+//Returns the last matching element.
+console.log(findarr.findLast((x)=> x>15));
+
 
 console.log("-------------------map-------------");
 let mappingdata = [1, 2, 3, 4, 5, 6];
@@ -252,6 +303,42 @@ console.log(amap);
 
 console.log("------------------filter------------");
 console.log(mappingdata.filter((x) => x < 5));
+
+
+console.log("--------------reduce()---------------------");
+//Reduces array to a single value.
+let rarr = [1, 2, 3, 4];
+console.log(rarr.reduce((sum, x) => sum + x, 0));
+
+console.log("--------------------- some()------------------");
+//Returns true if at least one element matches.
+console.log(rarr.some((x) => x > 2));
+
+console.log("--------------------every()--------------");
+//Returns true if all elements match.
+console.log(rarr.every((x) => x % 2 === 0));
+
+console.log("-----------------sort-----------------");
+//The sort() method sorts the elements as strings in alphabetical and ascending order.
+let sortarr=["x", "a", "f", "s", "m"];
+console.log(sortarr.sort());
+
+
+console.log("------------------reverse()----------------");
+//reverse the all elemets
+let resarr=[1,2,3,4,5,6,7];
+console.log(resarr.reverse());
+
+
+console.log("------------------flat()-------------------");
+//Flattens nested arrays.
+let flatarr = [1, [2, [3, 4 ,5]]];
+console.log(flatarr.flat(2));
+
+
+
+
+
 
 console.log("============================Type Conversion=================");
 
