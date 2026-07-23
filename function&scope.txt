@@ -1,0 +1,420 @@
+console.log("-------------------------function------------------------");
+// Functions are reusable code blocks designed to perform a particular task.
+// Functions are executed when they are called or invoked.
+// Functions are fundamental in all programming languages.
+
+example;
+function greet() {
+  console.log("Hello");
+}
+
+greet();
+
+
+------------------------------type of the funcation-----------------
+---------------------1. normul funcation----------------------------------
+A function declaration is created using the function keyword.
+
+Syntax
+function functionName() {
+    // code
+}
+Example
+function greet() {
+    console.log("Welcome to JavaScript");
+}
+
+greet();
+
+
+----------------------------Function Expression---------------------------
+A function is assigned to a variable.
+
+Syntax
+const variableName = function () {
+    // code
+};
+Example
+const greet = function () {
+    console.log("Hello");
+};
+
+greet();
+
+
+2. Function Expression
+
+A function is assigned to a variable.
+
+Syntax
+const variableName = function () {
+    // code
+};
+Example
+const greet = function () {
+    console.log("Hello");
+};
+
+greet();
+
+Output
+
+Hello
+Example
+const multiply = function (a, b) {
+    return a * b;
+};
+
+console.log(multiply(5, 4));
+
+Output
+
+20
+Hoisting
+sayHello();
+
+const sayHello = function () {
+    console.log("Hello");
+};
+
+Output
+
+ReferenceError
+3. Arrow Functions (ES6)
+
+A shorter way to write functions.
+
+Syntax
+const functionName = () => {
+    // code
+};
+Example
+const greet = () => {
+    console.log("Hello");
+};
+
+greet();
+
+Output
+
+Hello
+Single Parameter
+const square = num => num * num;
+
+console.log(square(5));
+
+Output
+
+25
+Multiple Parameters
+const add = (a, b) => a + b;
+
+console.log(add(10, 20));
+
+Output
+
+30
+Returning Object
+const student = () => ({
+    name: "Aniket",
+    age: 22
+});
+
+console.log(student());
+
+
+| Feature             | Function Declaration | Function Expression | Arrow Function   |
+| ------------------- | -------------------- | ------------------- | ---------------- |
+| Hoisted             | ✅ Yes                | ❌ No                | ❌ No             |
+| Has `this`          | ✅ Yes                | ✅ Yes               | ❌ Lexical `this` |
+| Syntax              | Longer               | Medium              | Short            |
+| Constructor (`new`) | ✅ Yes                | ✅ Yes               | ❌ No             |
+
+
+-----------------------------JavaScript Function Parameters----------------------
+Variables defined in the function declaration.
+
+function greet(name) {
+    console.log(name);
+}
+
+name is a parameter.
+
+Arguments
+
+Values passed when calling the function.
+
+greet("Aniket");
+
+"Aniket" is an argument.
+
+Example
+function add(a, b) {
+    return a + b;
+}
+
+console.log(add(10, 20));
+
+--------------------------------Default Parameters-------------------------
+Used when no value is passed.
+
+function greet(name = "Guest") {
+    console.log("Welcome " + name);
+}
+
+greet();
+greet("Aniket");
+
+-----------------------------Rest Parameters--------------------------
+
+Collects multiple arguments into an array.
+
+Syntax
+function sum(...numbers) {
+
+}
+Example
+function sum(...numbers) {
+
+    let total = 0;
+
+    for (let num of numbers) {
+        total += num;
+    }
+
+    return total;
+}
+
+console.log(sum(10,20,30,40));
+
+
+function display(name, ...marks) {
+    console.log(name);
+    console.log(marks);
+}
+
+display("Aniket",80,90,95);
+
+
+----------------------------------------callback function----------------------
+A callback is a function passed as an argument to another function.
+A callback function is a function passed as an argument into another function.
+
+A callback function is intended to be executed later.
+
+Later is typically when a specific event occurs or an asynchronous operation completes.
+
+
+Types of Callbacks
+Asynchronous Callbacks
+Asynchronous callbacks are executed at a later time, allowing the main program to continue running without waiting.
+
+This is essential for preventing the application from freezing during long-running tasks like network requests.
+
+Synchronous Callbacks
+Synchronous Callbacks are executed immediately within the outer function, blocking further operations until completion.
+
+Array methods like map(), filter(), and forEach() use synchronous callbacks.
+
+
+
+Asynchronous Operations
+Windows functions like setTimeout() use callbacks to execute code after a specified delay.
+
+Example
+setTimeout(myFunction, 3000);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "I love You !!";
+}
+
+
+function greet(name) {
+    console.log("Hello " + name);
+}
+
+function process(callback) {
+    callback("Aniket");
+}
+
+process(greet);
+
+-----------------------------------------Closures----------------------------
+
+A closure is created when an inner function remembers variables from its outer function,
+ even after the outer function has finished executing.
+ function outer() {
+
+    let count = 0;
+
+    function inner() {
+        count++;
+        console.log(count);
+    }
+
+    return inner;
+}
+
+const counter = outer();
+
+counter();
+counter();
+counter();
+
+
+function bankAccount(balance) {
+
+    return function(amount) {
+        balance += amount;
+        console.log(balance);
+    };
+
+}
+
+let deposit = bankAccount(1000);
+
+deposit(500);
+deposit(100);
+
+
+
+
+---------------------------------this-------------------------------
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+
+When used in an object method, this refers to the object.
+
+In the example above, this refers to the person object.
+
+Because the fullName method is a method of the person object.
+this refers to the object that is executing the current function.
+
+const mydata = {
+  name: "Aniket",
+  show() {
+    console.log(this.name);
+  },
+};
+
+console.log(mydata);
+mydata.show();
+
+console.log(this);
+
+
+----------------------------------------scope------------------------
+10. Scope
+
+Scope determines where variables are accessible.
+
+There are three main types:
+
+Global Scope
+Function Scope
+Block Scope
+Global Scope
+let name = "Aniket";
+
+function show() {
+    console.log(name);
+}
+
+show();
+
+Output
+
+Aniket
+Function Scope
+
+Variables declared with var, let, or const inside a function can only be accessed within that function.
+
+function test() {
+
+    let age = 22;
+
+    console.log(age);
+
+}
+
+test();
+
+// console.log(age);
+
+Output
+
+22
+ReferenceError
+Block Scope
+
+let and const are block-scoped.
+
+if (true) {
+
+    let a = 10;
+    const b = 20;
+
+    console.log(a);
+    console.log(b);
+
+}
+
+// console.log(a);
+
+Output
+
+10
+20
+ReferenceError
+var is NOT Block Scoped
+if (true) {
+
+    var x = 100;
+
+}
+
+console.log(x);
+
+Output
+
+100
+Scope Chain
+let a = 10;
+
+function outer() {
+
+    let b = 20;
+
+    function inner() {
+
+        let c = 30;
+
+        console.log(a);
+        console.log(b);
+        console.log(c);
+
+    }
+
+    inner();
+}
+
+outer();
+
+Output
+
+10
+20
+30
+
+The inner function can access:
+
+Its own variables
+Parent function variables
+Global variables
