@@ -66,9 +66,9 @@ function myCalculator(num1, num2) {
 // Call the calculator
 myCalculator(5, 5);
 
-setTimeout(function () {
-  console.log("Executed after 2 seconds");
-}, 2000);
+// setTimeout(function () {
+//   console.log("Executed after 2 seconds");
+// }, 2000);
 
 console.log("----------------------Closures-----------------------------");
 
@@ -89,7 +89,9 @@ counter();
 counter();
 counter();
 
-console.log( "---------------------------this keyword---------------------------",);
+console.log(
+  "---------------------------this keyword---------------------------",
+);
 const mydata = {
   name: "Aniket",
   show() {
@@ -101,7 +103,6 @@ console.log(mydata);
 mydata.show();
 
 console.log(this);
-
 
 console.log("------------------------------Scope---------------------------");
 
@@ -117,32 +118,29 @@ show();
 
 console.log("--------------------Function Scope-----------------");
 
-const showq=()=>{
-  let fname="aniket";
-  const mname="babaso";
-  var lname="patil"
+const showq = () => {
+  let fname = "aniket";
+  const mname = "babaso";
+  var lname = "patil";
 
-  console.log("fname : "+fname + " mname :" + mname + " lname :"+lname);
-}
+  console.log("fname : " + fname + " mname :" + mname + " lname :" + lname);
+};
 showq();
-
 
 console.log("-----------------Block Scope---------------");
 if (true) {
+  let le = 10;
+  const be = 20;
 
-    let le = 10;
-    const be = 20;
-
-    console.log(le);
-    console.log(be);
-
+  console.log(le);
+  console.log(be);
 }
 
 // console.log(le);
 
-//var is not block scopew 
-if(true){
-  var va=100;
+//var is not block scopew
+if (true) {
+  var va = 100;
   console.log(va);
 }
 console.log(va);

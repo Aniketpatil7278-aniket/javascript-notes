@@ -1,0 +1,219 @@
+--------------------Synchronous JavaScript---------------------
+Synchronous programming executes code in sequence, where each statement waits for the
+ previous one to complete before running. This makes the flow simple and predictable.
+
+Tasks run one after another in a fixed order.
+Time-consuming operations can block the execution of other code until they finish.
+
+Example:
+console.log("Hi");
+console.log("Geek");
+console.log("How are you?");
+
+Output
+Hi
+Geek
+How are you?
+In the above code, “Hi” is logged first, then “Geek”, and finally “How are you”. Each statement executes only after the previous one completes.
+
+-----------------------Asynchronous JavaScript--------------------------
+Asynchronous programming, on the other hand, allows multiple tasks to run independently of each other.
+ In asynchronous code, a task can be initiated, and while waiting for it to complete, other tasks 
+ can proceed. This non-blocking nature helps improve performance and responsiveness, especially in
+  web applications.
+
+exampel:
+console.log("Hi");
+
+setTimeout(() => {
+    console.log("Geek");
+}, 2000);
+
+console.log("End");
+
+
+Asynchronous Concepts
+JavaScript handles asynchronus programming using different core concepts.
+
+Concept	                        Description
+Synchronus	            JavaScript standard flow is executing line by line.
+Timers	                Allows code to run while other code is waiting.
+Callbacks	            Callbacks were the first solution for async JavaScript.
+Events	                Stores callback function waiting to be executed.
+Promises	            Tools to handle asynchronous operations cleanly.
+Async/Await	            The clean and modern way to handle async code.
+
+
+
+--------------------------------------------------------------------------------------------------------
+Feature	                 Synchronous JavaScript	                       Asynchronous JavaScript
+Code Flow	        Executes in a fixed sequence	             Executes tasks independently
+Blocking	        Blocks further execution until completion	Does not block other code execution
+Complexity	        Simple and easy to understand	            More complex due to callbacks, promises, etc.
+Best Used For	     Simple and sequential tasks	            Time-consuming operations like API calls and timers
+
+
+
+
+---------------------------------callback function-------------------------------
+A callback is a function passed as an argument to another function.
+The receiving function decides when to use (call) the callback.
+A callback can be called immediately, later, once, or many times.
+By themselves, callbacks are neither synchronous nor asynchronous.
+They are simply a way to let one function execute another function.
+
+
+
+console.log("------------------------ Synchronous callback function----------------------",);
+
+const demo = (name, callback) => {
+  callback("hello " + name);
+};
+
+const displaymsg = (msg) => {
+  console.log("this is the diplay function and callback function");
+  console.log(msg);
+};
+
+demo("aniket", displaymsg);
+
+console.log("------------------------ ASynchronous callback function----------------------",);
+
+console.log("Start");  //myDisplayer is a callback function passed as an argument to setTimeout().
+setTimeout(function myDisplayer() {
+  console.log("Task Completed");
+}, 2000);
+
+console.log("End");
+
+
+
+
+
+-------------------------------------------------Promise--------------------------------------
+A Promise represents the eventual completion (or failure) of an asynchronous operation.
+
+A promise has three states:
+
+Pending → Initial state
+Fulfilled → Operation completed successfully
+Rejected → Operation failed
+
+
+Promise Syntax
+const promise = new Promise((resolve, reject) => {
+
+    // async work
+
+});
+
+Many JavaScript APIs return Promises.
+
+The fetch() method is one example.
+
+fetch("fetch.txt")
+.then(function(response) {
+  return response.text();
+})
+.then(function(text) {
+  myDisplayer(text);
+})
+.catch(function(error) {
+  myDisplayer(error);
+});
+
+
+-----------How then() Works-----------
+The then() method is called immediately.
+
+It registers a function that JavaScript will call after the Promise is fulfilled.
+
+The registered function runs later when the Promise has a result.
+
+Each call to then() returns a new Promise.
+
+
+Creating a Promise
+Most of the time you will use Promises returned by JavaScript APIs such as fetch().
+
+Sometimes you need to create your own Promise.
+-----------------------------------------------
+Create a Promise with the Promise() constructor.
+
+Syntax
+const promise = new Promise(function(resolve, reject) {
+  // Asynchronous work
+
+  if (success) {
+    resolve(value);
+  } else {
+    reject(error);
+  }
+});
+The constructor receives a function with two parameters.
+
+Parameter   	Description
+resolve	        Fulfills the Promise with a value.
+reject	        Rejects the Promise with an error.
+
+----------
+The then() Method
+The then() method registers a function that handles a fulfilled Promise.
+
+The catch() Method
+The catch() method registers a function that handles a rejected Promise.
+
+The finally() Method
+The finally() method registers a function that runs when a Promise settles.
+
+
+
+console.log("------------------async / await------------------");
+The async Keyword
+The async keyword before a function makes the function return a promise.
+
+This is true even if you return a normal value.
+
+// Create an async function
+async function hello() {
+  return "Hello World!";
+}
+
+// Call the async function
+hello().then(function(value) {
+  myDisplayer(value);
+});
+
+
+
+
+The await Keyword
+The await keyword waits for a Promise to settle.
+
+It can only be used inside an async function or at the top level of a JavaScript module.
+
+
+The await Keyword
+The await keyword waits for a Promise to settle.
+
+function fetchData() {
+
+    return new Promise(resolve => {
+
+        setTimeout(() => {
+            resolve("Data Received");
+        }, 2000);
+
+    });
+
+}
+
+async function display() {
+
+    const result = await fetchData();
+
+    console.log(result);
+
+}
+
+display();
