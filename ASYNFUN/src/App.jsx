@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Callbackfun from "./pages/Callbackfun";
+import PromiseoPage from "./pages/PromiseoPage";
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Callbackfun />} />
+        <Route path="/promiseopage" element={<PromiseoPage />} />
       </Routes>
     </BrowserRouter>
   );

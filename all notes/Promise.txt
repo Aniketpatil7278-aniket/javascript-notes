@@ -1,0 +1,83 @@
+A Promise represents the future result of an asynchronous operation.
+A Promise is an object that represents the eventual completion (success) or failure of an asynchronous operation.
+
+State	                          Meaning
+Pending	                    Work is still happening.
+Fulfilled (Resolved)	    Operation completed successfully.
+Rejected	                    Operation failed.
+
+
+The constructor receives a function with two parameters.
+
+Parameter	        Description
+resolve	        Fulfills the Promise with a value.
+reject	        Rejects the Promise with an error.
+
+syntax
+const promise = new Promise((resolve, reject) => {
+
+});
+
+
+
+--------------------------------Promise Methods-----------------------
+
+--------------------------------Promise.resolve()
+Creates a successful Promise.
+
+Promise.resolve("Hello")
+.then(console.log);
+
+Output
+Hello
+
+
+--------------------------------Promise.reject()
+Creates a rejected Promise.
+
+Promise.reject("Error")
+.catch(console.log);
+
+Output
+Error
+
+
+--------------------------------Promise.all()
+Runs multiple Promises together.
+If all succeed
+returns all results.
+
+Promise.all([
+
+    Promise.resolve(10),
+    Promise.resolve(20),
+    Promise.resolve(30)
+])
+.then(console.log);
+
+Output
+[10,20,30]
+
+If even one Promise rejects, Promise.all() rejects immediately.
+
+
+--------------------------------Promise.race()
+Returns the first settled Promise (fulfilled or rejected).
+
+Promise.race([
+    new Promise(resolve => setTimeout(()=>resolve("A"),2000)),
+    new Promise(resolve => setTimeout(()=>resolve("B"),1000))
+
+])
+.then(console.log);
+
+Output
+B
+
+--------------------------------Promise.allSettled()
+Waits for all Promises to finish, regardless of success or failure.
+
+Promise.allSettled([
+  Promise.resolve("Success"),
+  Promise.reject("Failed")
+]).then(console.log);
