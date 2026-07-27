@@ -6,12 +6,12 @@ console.log("------------------------primitive datatype ---------------");
 console.log("------------------Number---------------");
 let a = 10;
 let b = 10.2020252152;
-console.log(a);
-console.log(b);
+console.log(a);              //10
+console.log(b);             //10.2020252152
 console.log(Infinity);
 console.log(-Infinity);
 console.log(NaN);
-console.log(typeof NaN);
+console.log(typeof NaN);       //number
 
 //2.String
 console.log("-----------String-----------");
@@ -308,7 +308,7 @@ console.log(mappingdata.filter((x) => x < 5));
 console.log("--------------reduce()---------------------");
 //Reduces array to a single value.
 let rarr = [1, 2, 3, 4];
-console.log(rarr.reduce((sum, x) => sum + x, 0));
+console.log(rarr.reduce((sum, x) => sum + x, 0));  //10
 
 console.log("--------------------- some()------------------");
 //Returns true if at least one element matches.

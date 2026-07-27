@@ -14,10 +14,10 @@ console.log(
 
 //greet1(); //refernaceerror
 
-const greet1 = function () {
+const greet1 = function (name) {
   console.log("this is expression function demo");
 };
-greet1();
+greet1("aniket");
 
 console.log(
   "-----------------------Arrow Functions---------------------------",

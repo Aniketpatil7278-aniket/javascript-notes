@@ -137,7 +137,6 @@ console.log(arr.indexOf(20));
 
 Output
 1
-
 13. lastIndexOf()
 Returns last index.
 
@@ -146,7 +145,6 @@ console.log(arr.lastIndexOf(20));
 
 Output
 3
-
 14. includes()
 Checks if value exists.
 
@@ -185,7 +183,6 @@ console.log(arr);
 
 Output
 [0,0,0]
-
 18. copyWithin()
 Copies part of the array.
 

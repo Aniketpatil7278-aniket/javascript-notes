@@ -25,16 +25,16 @@ console.log(
   "------------------------ Synchronous callback function----------------------",
 );
 
-const demo = (name, callback) => {
-  callback("hello " + name);
-};
+// const demo = (name, callback) => {
+//   callback("hello " + name);
+// };
 
-const displaymsg = (msg) => {
-  console.log("this is the diplay function and callback function");
-  console.log(msg);
-};
+// const displaymsg = (msg) => {
+//   console.log("this is the diplay function and callback function");
+//   console.log(msg);
+// };
 
-demo("aniket", displaymsg);
+// demo("aniket", displaymsg);
 
 console.log(
   "------------------------ ASynchronous callback function----------------------",
@@ -49,23 +49,23 @@ console.log(
 
 console.log("---------------------Async Promises-------------------");
 
-const promise = new Promise(function (resolve, reject) {
-  const success = true;
+// const promise = new Promise(function (resolve, reject) {
+//   const success = true;
 
-  if (success) {
-    resolve("Operation completed");
-  } else {
-    reject("Operation failed");
-  }
-});
+//   if (success) {
+//     resolve("Operation completed");
+//   } else {
+//     reject("Operation failed");
+//   }
+// });
 
-promise
-  .then(function (value) {
-    myDisplayer(value);
-  })
-  .catch(function (error) {
-    myDisplayer(error);
-  });
+// promise
+//   .then(function (value) {
+//     myDisplayer(value);
+//   })
+//   .catch(function (error) {
+//     myDisplayer(error);
+//   });
 
 console.log("--------------------Promise with setTimeout------------------");
 // const pro = new Promise((resolve) => {
@@ -94,21 +94,130 @@ console.log("------------------async / await------------------");
 // display();
 
 console.log("-------------------- errors handle.--------------------------");
-try {
-  console.log(sm);
-} catch (error) {
-  console.log("Error:", error.message);
-}finally{
-    console.log("thnak you!..");
-}
-
+// try {
+//   console.log(sm);
+// } catch (error) {
+//   console.log("Error:", error.message);
+// } finally {
+//   console.log("thnak you!..");
+// }
 
 console.log("---------------------get api--------------------");
-fetch("https://jsonplaceholder.typicode.com/users")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+// fetch("https://my-json-server.typicode.com/Aniketpatil7278-aniket/json-server-api/users")
+//   .then((response) => response.json())
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+console.log("-------------------Post api--------------");
+
+// async function addUser() {
+//   const user = {
+//     name: "abhay",
+//     email: "abhay@gmail.com",
+//   };
+
+//   try {
+//     const response = await fetch("https://my-json-server.typicode.com/Aniketpatil7278-aniket/json-server-api/users", {
+//       method: "POST",
+
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+
+//       body: JSON.stringify(user),
+//     });
+
+//     const data = await response.json();
+
+//     console.log(data);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+// addUser();
+
+console.log("--------------------put api-----------------");
+
+//   fetch("https://jsonplaceholder.typicode.com/users/1", {
+//     method: "PUT",
+
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+
+//     body: JSON.stringify({
+//       name: "Updated Name",
+//     }),
+//   })
+//     .then((response) => response.json())
+//     .then((data) => console.log(data));
+
+console.log("------------------------Handling Errors-------------------------");
+// async function getUsers() {
+//   const response = await fetch(
+//     "https://my-json-server.typicode.com/Aniketpatil7278-aniket/json-server-api/users"
+//   );
+
+//   console.log(response.status);
+//   console.log(response.ok);
+//   console.log(response.headers);
+//   console.log(response.type);
+// }
+
+// getUsers();
+
+console.log("---------------------gets the errors---------------");
+// async function fetchUsers() {
+//   try {
+//     const response = await fetch("https://my-json-server.typicode.com/Aniketpatil7278-aniket/json-server-api/users");
+
+//     if (!response.ok) {
+//       throw new Error(`HTTP Error: ${response.status}`);
+//     }
+
+//     const users = await response.json();
+
+//     users.forEach((user) => {
+//       console.log(`${user.id}. ${user.name} - ${user.userid}`);
+//     });
+//   } catch (error) {
+//     console.error("Error:", error.message);
+//   }
+// }
+
+// fetchUsers();
+
+
+const que = [1, [2, 3], [4]];
+
+[1, 2, 3, 4];
+
+console.log(que.flat());
+
+let ans=[];
+
+for(let x of que){
+    if(typeof x ==="object"){
+        for(let y of x){
+            ans[ans.length]= y;
+        }
+    }else{
+        ans[ans.length]=x;
+    }
+}
+console.log(ans);
+
+
+
+
+
+const ass=(ss, tt)=>{
+    return add=ss=tt
+}
+
+console.log(ass(10, 20));

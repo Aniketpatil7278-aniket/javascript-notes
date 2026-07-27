@@ -1,0 +1,45 @@
+Why Async Programming?
+Some operations take time to complete:
+
+downloading data
+reading files
+waiting for events
+waiting for user input
+waiting for a timer
+
+
+Asynchronous Concepts
+JavaScript handles asynchronus programming using different core concepts.
+
+Concept	                            Description
+Synchronus	            JavaScript standard flow is executing line by line.
+Timers	                Allows code to run while other code is waiting.
+Callbacks	            Callbacks were the first solution for async JavaScript.
+Events	                Stores callback function waiting to be executed.
+Promises	            Tools to handle asynchronous operations cleanly.
+Async/Await	            The clean and modern way to handle async code.
+
+
+Common Asynchronous Operations
+Operation       	Example
+Timer	             setTimeout()
+Network request 	fetch()
+User interaction	    click events
+Animation	            requestAnimationFrame()
+Web Workers	            Background processing
+
+
+
+------------------------------JavaScript callback------------------------------------
+A callback function is a function that is passed as an argument to another function and is executed later when the main 
+function decides to call it.
+
+A callback is a function passed as an argument to another function.
+
+The receiving function decides when to use (call) the callback.
+
+A callback can be called immediately, later, once, or many times.
+
+By themselves, callbacks are neither synchronous nor asynchronous.
+
+They are simply a way to let one function execute another function.
