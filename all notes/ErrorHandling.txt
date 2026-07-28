@@ -1,0 +1,70 @@
+What is Error Handling?
+Interview Definition
+
+Error handling is the process of detecting, managing, and responding to errors so that the application doesn't crash unexpectedly.
+
+Simple definition:
+
+Error handling means writing code that can handle problems gracefully instead of stopping the application.
+
+----------------------Types of Errors
+1. Syntax Error
+Mistakes in writing JavaScript code.
+
+console.log("Hello"
+
+Output
+SyntaxError: Unexpected end of input
+
+2. Reference Error
+Using a variable that doesn't exist.
+
+console.log(name);
+
+Output
+ReferenceError: name is not defined
+
+3. Type Error
+Using a value incorrectly.
+
+let num = 10;
+num.toUpperCase();
+
+Output
+TypeError: num.toUpperCase is not a function
+
+4. Range Error
+Using a value outside the allowed range.
+
+let arr = new Array(-1);
+
+Output
+RangeError
+
+
+
+
+
+
+
+
+
+----------------------throw--------------------
+
+You can create your own errors.
+
+let age = 15;
+
+try {
+
+    if (age < 18) {
+
+        throw new Error("Age must be 18 or above");
+
+    }
+
+} catch (error) {
+
+    console.log(error.message);
+
+}

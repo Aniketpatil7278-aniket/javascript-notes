@@ -43,3 +43,131 @@ A callback can be called immediately, later, once, or many times.
 By themselves, callbacks are neither synchronous nor asynchronous.
 
 They are simply a way to let one function execute another function.
+
+
+console.log("-----------------------callback function----------------------------",);
+
+function greet(name, callback) {
+  callback("hello " + name);
+}
+function display(msg) {
+  console.log(msg);
+}
+greet("aniket", display);
+
+console.log("---------------------example of the callback----------------");
+
+function first(callback) {
+  console.log("First Function");
+
+  callback();
+}
+
+function second() {
+  console.log("Second Function");
+}
+first(second);
+
+console.log("--------------------------(Arrow Callback----------------");
+function greet12(callback) {
+  console.log("Hello");
+
+  callback();
+}
+
+greet12(() => {
+  console.log("Welcome");
+});
+
+
+// -------------------in reactc -------------------
+//   /*{
+//     /* Button */
+//   }
+//   <Button variant="contained" className="mt-4" onClick={handlebtn}>
+//     Callbak function
+//   </Button>;
+//   {
+//     /* Anonymous Callback */
+//   }
+//   <Button
+//     variant="contained"
+//     color="error"
+//     className="mt-4"
+//     onClick={() => {
+//       console.log("this is the Anonymous Callback");
+//     }}
+//   >
+//     Anonymous Callback
+//   </Button>;
+
+//   {
+//     /* callback with map */
+//   }
+//   {
+//     users.map((u) => <Typography key={u}>{u}</Typography>);
+//   }
+
+ 
+
+
+console.log("------------------async / await------------------");
+The async Keyword
+The async keyword before a function makes the function return a promise.
+
+This is true even if you return a normal value.
+
+// Create an async function
+async function hello() {
+  return "Hello World!";
+}
+
+// Call the async function
+hello().then(function(value) {
+  myDisplayer(value);
+});
+
+
+
+
+The await Keyword
+The await keyword waits for a Promise to settle.
+
+It can only be used inside an async function or at the top level of a JavaScript module.
+
+
+The await Keyword
+The await keyword waits for a Promise to settle.
+
+function fetchData() {
+
+    return new Promise(resolve => {
+
+        setTimeout(() => {
+            resolve("Data Received");
+        }, 2000);
+
+    });
+
+}
+
+async function display() {
+
+    const result = await fetchData();
+
+    console.log(result);
+
+}
+
+display();
+
+
+| `async`                            | `await`                                      |
+| ---------------------------------- | -------------------------------------------- |
+| Declares an asynchronous function. | Waits for a Promise to finish.               |
+| Always returns a Promise.          | Can only be used inside an `async` function. |
+| Used before a function.            | Used before a Promise.                       |
+
+
+
+----------------------------------------------------------------------------------------------------------
