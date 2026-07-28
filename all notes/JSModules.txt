@@ -1,0 +1,59 @@
+JavaScript Modules Export
+
+The Export Keyword
+A module uses the export keyword to share values with other files.
+A module can have many named exports.
+A module can (optionally) have one default export.
+
+-----------------------------------------Named Exports
+A named export gives a name to each item.
+
+Items can be exported individually, or wrapped in { } at the bottom:
+
+example 
+// export name and age
+export const name = "Jesse";
+export const age = 40;
+
+---------------------------------------
+const name = "Jesse";
+const age = 40;
+
+// export name and age
+export { name, age };
+
+<script type="module">
+
+// Import name and age
+import { name, age } from "./person.js";
+
+</script>
+--------------------------------------------------
+
+
+----------------------------Default Exports--------------------
+
+Default Export exports one main value from a module.
+
+This gives a clear intent about what the module's primary functionality is.
+
+If a file is meant to expose one primary function, class, or value, default export makes that explicit:
+
+The name calc does not need to match the original.
+
+Compared to named exports, where the name must match exactly:
+
+
+example 
+export default function calculateSum() { ... }
+import calc from './calculateSum.js';                 //The name calc does not need to match the original.
+
+
+
+=========================================imports modules-----------------------------
+Default Import
+Default + Named Import
+
+Importing All
+1. // Import all named exports from person.js
+import * as person from "./person.js";
