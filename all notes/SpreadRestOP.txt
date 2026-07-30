@@ -1,0 +1,5 @@
+What is the Spread Operator?
+The Spread Operator (...) expands or spreads the elements of an array, object, or iterable into individual elements.
+
+What is the Rest Operator?
+The Rest Operator (...) collects multiple values into a single array or object.

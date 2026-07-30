@@ -1,0 +1,682 @@
+Optional Chaining (?.) in JavaScript
+
+Optional chaining allows you to safely access a property or call a function without 
+getting an error when the value before ?. is null or undefined.
+
+syntax
+
+object?.property
+
+Basic Optional Chaining
+
+Without optional chaining:
+
+const student = {
+  name: "Aniket"
+};
+
+console.log(student.age.name);
+
+This gives an error:
+
+Cannot read properties of undefined
+
+Because:
+
+student.age
+
+is undefined.
+
+Then JavaScript tries:
+
+undefined.name
+
+which causes an error.
+
+With optional chaining:
+
+const student = {
+  name: "Aniket"
+};
+
+console.log(student.age?.name);
+
+Output:
+
+undefined
+
+Instead of throwing an error, ?. safely returns undefined.
+
+2. Optional Chaining with Objects
+const student = {
+  name: "Aniket",
+  age: 25
+};
+
+console.log(student?.name);
+console.log(student?.age);
+
+Output:
+
+Aniket
+25
+
+Here, student exists, so the properties are accessed normally.
+
+3. When Object is null
+const student = null;
+
+console.log(student?.name);
+
+Output:
+
+undefined
+
+Without optional chaining:
+
+console.log(student.name);
+
+You would get:
+
+Cannot read properties of null
+4. When Object is undefined
+let student;
+
+console.log(student?.name);
+
+Output:
+
+undefined
+
+Without ?.:
+
+console.log(student.name);
+
+You get an error.
+
+5. Nested Optional Chaining
+
+Suppose you have:
+
+const student = {
+  name: "Aniket",
+  address: {
+    city: "Belgaum",
+    state: "Karnataka"
+  }
+};
+
+You can access:
+
+console.log(student?.address?.city);
+
+Output:
+
+Belgaum
+
+The chain is:
+
+student
+   ↓
+address
+   ↓
+city
+6. Missing Nested Property
+const student = {
+  name: "Aniket"
+};
+
+console.log(student?.address?.city);
+
+Output:
+
+undefined
+
+JavaScript checks:
+
+student       → exists
+address       → undefined
+city          → not accessed
+
+This prevents an error.
+
+7. Without Optional Chaining vs With Optional Chaining
+Without ?.
+const student = {};
+
+console.log(student.address.city);
+
+Error:
+
+Cannot read properties of undefined
+With ?.
+const student = {};
+
+console.log(student?.address?.city);
+
+Output:
+
+undefined
+8. Optional Chaining with Arrays
+
+You can use optional chaining with array indexes.
+
+const students = ["Aniket", "Rahul"];
+
+console.log(students?.[0]);
+console.log(students?.[1]);
+
+Output:
+
+Aniket
+Rahul
+
+The syntax is:
+
+array?.[index]
+9. Array Index Doesn't Exist
+const students = ["Aniket", "Rahul"];
+
+console.log(students?.[5]);
+
+Output:
+
+undefined
+
+Because index 5 doesn't exist.
+
+10. Array is null
+const students = null;
+
+console.log(students?.[0]);
+
+Output:
+
+undefined
+
+Without ?.:
+
+console.log(students[0]);
+
+Error:
+
+Cannot read properties of null
+11. Optional Chaining with Function Calls
+
+Optional chaining can also be used to call a function that may or may not exist.
+
+const student = {
+  name: "Aniket"
+};
+
+student.printName?.();
+
+Output:
+
+Nothing
+
+The function doesn't exist, so JavaScript returns undefined instead of throwing an error.
+
+Without ?.:
+
+student.printName();
+
+You get:
+
+student.printName is not a function
+12. Function Exists
+const student = {
+  name: "Aniket",
+
+  printName() {
+    console.log(this.name);
+  }
+};
+
+student.printName?.();
+
+Output:
+
+Aniket
+
+Because printName exists and is a function.
+
+13. Optional Chaining with Function Parameters
+
+Suppose:
+
+function display(student) {
+  console.log(student?.name);
+}
+
+display({
+  name: "Aniket"
+});
+
+Output:
+
+Aniket
+
+If you call:
+
+display(null);
+
+Output:
+
+undefined
+
+Without optional chaining:
+
+function display(student) {
+  console.log(student.name);
+}
+
+Calling:
+
+display(null);
+
+would cause an error.
+
+14. Optional Chaining with Deeply Nested Objects
+
+Consider:
+
+const student = {
+  name: "Aniket",
+  address: {
+    location: {
+      city: "Belgaum"
+    }
+  }
+};
+
+You can access:
+
+console.log(
+  student?.address?.location?.city
+);
+
+Output:
+
+Belgaum
+
+If location doesn't exist:
+
+const student = {
+  name: "Aniket",
+  address: {}
+};
+
+console.log(
+  student?.address?.location?.city
+);
+
+Output:
+
+undefined
+15. Optional Chaining with Your myobj Example
+
+Suppose your object is:
+
+const myobj = {
+  fname: "Aniket",
+  address: {
+    city: "Belgaum",
+    state: "Karnataka"
+  }
+};
+
+You can write:
+
+console.log(myobj?.fname);
+console.log(myobj?.address?.city);
+console.log(myobj?.address?.country);
+
+Output:
+
+Aniket
+Belgaum
+undefined
+
+country doesn't exist, but no error occurs.
+
+16. Optional Chaining with null
+const myobj = {
+  fname: "Aniket",
+  address: null
+};
+
+console.log(myobj?.address?.city);
+
+Output:
+
+undefined
+
+Without optional chaining:
+
+console.log(myobj.address.city);
+
+Error:
+
+Cannot read properties of null
+17. Optional Chaining + Nullish Coalescing
+
+Optional chaining is often used together with the nullish coalescing operator (??).
+
+Example:
+
+const student = {};
+
+const city = student?.address?.city ?? "Unknown";
+
+console.log(city);
+
+Output:
+
+Unknown
+
+Here:
+
+student?.address?.city
+
+returns:
+
+undefined
+
+Then:
+
+?? "Unknown"
+
+provides a default value.
+
+The flow is:
+
+student
+   ↓
+address → undefined
+   ↓
+city → undefined
+   ↓
+?? "Unknown"
+   ↓
+"Unknown"
+18. Optional Chaining vs Logical AND (&&)
+
+Before optional chaining, developers often used:
+
+const city = student &&
+             student.address &&
+             student.address.city;
+
+Now you can write:
+
+const city = student?.address?.city;
+
+Much cleaner.
+
+Old approach
+if (
+  student &&
+  student.address &&
+  student.address.city
+) {
+  console.log(student.address.city);
+}
+Optional chaining
+console.log(student?.address?.city);
+19. Optional Chaining with Arrays of Objects
+
+Suppose:
+
+const students = [
+  {
+    name: "Aniket",
+    address: {
+      city: "Belgaum"
+    }
+  }
+];
+
+You can access:
+
+console.log(
+  students?.[0]?.address?.city
+);
+
+Output:
+
+Belgaum
+
+If the array is empty:
+
+const students = [];
+
+console.log(
+  students?.[0]?.address?.city
+);
+
+Output:
+
+undefined
+20. Optional Chaining in React
+
+This is very common when fetching API data.
+
+Suppose API data is:
+
+const user = {
+  name: "Aniket",
+  address: {
+    city: "Belgaum"
+  }
+};
+
+You can write:
+
+<Typography>
+  {user?.name}
+</Typography>
+
+<Typography>
+  {user?.address?.city}
+</Typography>
+
+If the API hasn't loaded yet and user is null:
+
+const [user, setUser] = useState(null);
+
+Then:
+
+{user?.name}
+
+doesn't cause an error.
+
+This is very useful when working with API data and React state.
+
+21. Optional Chaining in Your API Example
+
+You had an API object like this:
+
+{
+  name: "Leanne Graham",
+  address: {
+    city: "Gwenborough",
+    zipcode: "92998-3874"
+  },
+  company: {
+    name: "Romaguera-Crona"
+  }
+}
+
+You can safely access:
+
+<Typography>
+  Name: {u?.name}
+</Typography>
+
+<Typography>
+  City: {u?.address?.city}
+</Typography>
+
+<Typography>
+  Zipcode: {u?.address?.zipcode}
+</Typography>
+
+<Typography>
+  Company: {u?.company?.name}
+</Typography>
+
+If address or company is missing, the application won't crash.
+
+22. Optional Chaining with delete
+
+You can also use optional chaining with delete.
+
+const student = {
+  name: "Aniket"
+};
+
+delete student?.name;
+
+console.log(student);
+
+Output:
+
+{}
+
+This is a less common use case.
+
+23. Optional Chaining Cannot Be Used on the Left Side of Assignment
+
+This is not allowed:
+
+student?.name = "Aniket";
+
+You will get a syntax error.
+
+❌ Invalid:
+
+obj?.name = "Aniket";
+
+Instead, check first:
+
+if (obj) {
+  obj.name = "Aniket";
+}
+
+Optional chaining is mainly for reading/accessing values safely, not assigning them.
+
+24. Optional Chaining with Method Calls
+
+You can safely call a method:
+
+const user = {
+  sayHello() {
+    console.log("Hello");
+  }
+};
+
+user.sayHello?.();
+
+Output:
+
+Hello
+
+If the method doesn't exist:
+
+const user = {};
+
+user.sayHello?.();
+
+No error occurs.
+
+25. Important: ?. Only Stops at null or undefined
+
+Consider:
+
+const student = {
+  address: 0
+};
+
+console.log(student?.address);
+
+Output:
+
+0
+
+Optional chaining does not check for all falsy values.
+
+It only checks:
+
+null
+undefined
+
+These values cause optional chaining to stop:
+
+null
+undefined
+
+But these are valid values:
+
+0
+false
+""
+
+For example:
+
+const obj = {
+  value: 0
+};
+
+console.log(obj?.value);
+
+Output:
+
+0
+
+
+// Object property
+obj?.name
+
+// Nested object
+obj?.address?.city
+
+// Array index
+arr?.[0]
+
+// Nested array
+arr?.[0]?.name
+
+// Function call
+obj.method?.()
+
+// Deep nested access
+obj?.a?.b?.c?.d
+
+// With default value
+obj?.name ?? "Unknown"
+
+// Delete safely
+delete obj?.name
+
+
+
+console.log("-----------------Nullish Coalescing Operator (??) in JavaScript-------------------------)
+The Nullish Coalescing Operator (??) is used to provide a default value when the left side is null or undefined.
+
+Basic syntax
+const result = value ?? defaultValue;
+
+
+Basic Example
+let name = null;
+
+let result = name ?? "Unknown";
+
+console.log(result);
+
+Output:
+
+Unknown
+
+Because name is null, JavaScript uses "Unknown".
