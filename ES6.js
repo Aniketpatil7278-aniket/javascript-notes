@@ -213,3 +213,95 @@ let mynamedata = null;
 let result = mynamedata ?? "Unknown";
 
 console.log(result);
+
+
+console.log("-------------------Enhanced Object Literals==============================");
+//shourt hand 
+const myfname="aniket";
+const lastname="patil";
+const myage= 25;
+const mycourse="react";
+
+
+const studentdata={
+    myfname,
+    myage,
+    mycourse,
+    lname:lastname
+}
+console.log(studentdata);
+
+console.log("-------------Method Shorthand--------------");
+//Traditional way
+const std={
+    mname:"anikey",
+    lname:"patil",
+
+    greet:function(){
+        console.log("this is the greet function");
+    }
+}
+console.log(`${std.mname} ${std.lname}`);
+std.greet();
+
+console.log("-------//Enhanced Object Literal-------");
+const std1={
+    stdname:"aniket",
+    stdlname:"patil",
+
+    greet1() {
+        console.log("this is a Enhanced Object Literal function");
+    }
+};
+
+console.log(`${std1.stdlname} ${std1.stdname}  `);
+std1.greet1();
+
+
+console.log("-------------------this keyword-------------------");
+const thisstd={
+    tname:"aniket",
+    tlname:"patil",
+    tage:25,
+
+    display(){
+        console.log(this.tname);
+        console.log(this.tlname);
+    }
+}
+thisstd.display();
+
+
+const createStudent=(sname,sage)=>{
+    return{ sname, sage};
+}
+console.log(createStudent("anikety", 25));
+
+const createStudent1=(ssname, ssage)=>({
+    ssname, ssage
+});
+console.log(createStudent1("om", 25));
+
+
+console.log("------------------Getters---------------");
+const getter={
+    gname:"aniket",
+    glname:"patil",
+
+    get fullname(){
+        return this.gname + " " + this.glname;
+    }
+}
+console.log(getter.fullname);
+
+console.log("--------------setter --------------[");
+const setter={
+    sname:"aniket",
+    
+    set settername(value){
+        this.sname= value;
+    }
+}
+console.log(setter.sname);
+setter.settername="vikas";
+console.log(setter.sname);
